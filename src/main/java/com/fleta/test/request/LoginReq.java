@@ -1,6 +1,6 @@
 package com.fleta.test.request;
 
-import com.fleta.test.param.auth.SignUp;
+import com.fleta.test.param.auth.Login;
 import com.fleta.test.url.BaseUrl;
 import com.fleta.test.util.Request;
 import lombok.RequiredArgsConstructor;
@@ -13,36 +13,27 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @Component
-public class SignupReq extends BaseUrl {
+public class LoginReq extends BaseUrl {
     private final Request request;
 
-    @Value("${signup.url}")
+
+    @Value("${login.url}")
     private String url;
 
-    @Value("${signup.param.loginId}")
+    @Value("${login.param.loginId}")
     private String loginId;
 
-    @Value("${signup.param.password}")
+    @Value("${login.param.password}")
     private String password;
 
-    @Value("${signup.param.name}")
-    private String name;
+    public void login() {
 
-    @Value("${signup.param.email}")
-    private String email;
-
-    public void signup() {
-
-        SignUp signup = SignUp.builder()
+        Login login = Login.builder()
                 .loginId(loginId)
                 .password(password)
-                .name(name)
-                .email(email)
                 .build();
 
-        ResponseEntity<Map> response = request.send(baseUrl + url, signup, HttpMethod.POST);
+        ResponseEntity<Map> response = request.send(baseUrl + url, login, HttpMethod.POST);
         System.out.println(response);
     }
 }
-
-

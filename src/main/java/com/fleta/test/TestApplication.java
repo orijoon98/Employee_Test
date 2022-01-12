@@ -1,21 +1,47 @@
 package com.fleta.test;
 
+import com.fleta.test.request.LoginReq;
 import com.fleta.test.request.SignupReq;
-import com.fleta.test.url.AuthUrl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import java.util.Scanner;
 
 @SpringBootApplication
 public class TestApplication {
 
+	private static ApplicationContext applicationContext;
+
 	public static void main(String[] args) {
-		SpringApplication.run(TestApplication.class, args);
+		applicationContext = SpringApplication.run(TestApplication.class, args);
 
-		AuthUrl authUrl = new AuthUrl();
+		Scanner sc = new Scanner(System.in);
+		String api;
 
-		SignupReq signupReq = new SignupReq(authUrl);
+		while(true){
+			api = sc.next();
 
-		signupReq.test();
+			switch (api) {
+				case "signup":
+					try {
+						SignupReq signupReq = (SignupReq) applicationContext.getBean("signupReq");
+						signupReq.signup();
+					}
+					catch (Exception e) {
+						System.err.println(e.getMessage());
+					}
+					break;
+				case "login":
+					try {
+						LoginReq loginReq = (LoginReq) applicationContext.getBean("loginReq");
+						loginReq.login();
+					}
+					catch (Exception e) {
+						System.err.println(e.getMessage());
+					}
+					break;
+			}
+		}
 	}
-
 }

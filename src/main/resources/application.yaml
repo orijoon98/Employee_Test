@@ -1,2 +1,56 @@
 server:
   port: 8081
+
+signup:
+  method: POST
+  url: /api/auth/signup
+  param:
+    loginId: orijoon98
+    password: AAbb12!!
+    name: joon
+    email: orijoon98@gmail.com
+
+login:
+  method: POST
+  url: /api/auth/login
+  param:
+    loginId: user
+    password: AAbb12!!
+
+verify:
+  method: POST
+  url: /api/auth/verify
+
+getVerify:
+  method: GET
+  url: /api/auth/verify/{uuid}
+  param:
+    uuid:
+
+delete:
+  method: DELETE
+  url: /api/auth/delete
+  param:
+    loginId: user
+
+updateUserPublic:
+  method: PUT
+  url: /api/user/public
+  param:
+    country:
+    birthday:
+    gender:
+    zipCode:
+    address:
+    detailAddress:
+    number:
+    phoneNumber:
+
+updateUserPrivate:
+  method: PUT
+  url: /api/user/private
+  param:
+    bank:
+    accountNumber:
+    accountHolder:
+    note:
