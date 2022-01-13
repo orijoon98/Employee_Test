@@ -14,7 +14,7 @@ login:
   method: POST
   url: /api/auth/login
   param:
-    loginId: user
+    loginId: orijoon98
     password: AAbb12!!
 
 verify:
@@ -23,9 +23,7 @@ verify:
 
 getVerify:
   method: GET
-  url: /api/auth/verify/{uuid}
-  param:
-    uuid:
+  url: /api/auth/verify/
 
 delete:
   method: DELETE
@@ -37,20 +35,20 @@ updateUserPublic:
   method: PUT
   url: /api/user/public
   param:
-    country:
-    birthday:
-    gender:
-    zipCode:
-    address:
-    detailAddress:
-    number:
-    phoneNumber:
+    country: Korea
+    birthday: 1998-02-05
+    gender: male
+    zipCode: 04588
+    address: 23, Cheonggu-ro 1-gil, Jung-gu, Seoul, Republic of Korea
+    detailAddress: 101-1
+    number: 02-1234-5678
+    phoneNumber: 010-1234-5678
 
 updateUserPrivate:
   method: PUT
   url: /api/user/private
   param:
-    bank:
-    accountNumber:
-    accountHolder:
+    bank: shinhan
+    accountNumber: 454111-05-519143
+    accountHolder: user
     note:

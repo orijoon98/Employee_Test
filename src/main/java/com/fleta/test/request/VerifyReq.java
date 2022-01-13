@@ -13,28 +13,16 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @Component
-public class LoginReq extends BaseUrl {
+public class VerifyReq extends BaseUrl {
     private final Request request;
 
-
-    @Value("${login.url}")
+    @Value("${verify.url}")
     private String url;
 
-    @Value("${login.param.loginId}")
-    private String loginId;
+    public void verify() {
 
-    @Value("${login.param.password}")
-    private String password;
-
-    public void login() {
-
-        Login login = Login.builder()
-                .loginId(loginId)
-                .password(password)
-                .build();
-
-        ResponseEntity<Map> response = request.send(baseUrl + url, login, HttpMethod.POST);
-        token = response.getBody().get("data").toString();
+        ResponseEntity<Map> response = request.send(baseUrl + url, null, HttpMethod.POST);
+        uuid = response.getBody().get("data").toString();
         System.out.println(response);
     }
 }

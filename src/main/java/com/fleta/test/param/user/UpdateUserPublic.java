@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @ToString
 public class UpdateUserPublic {
     private String country;
-    private LocalDate birthday;
+    private String birthday;
     private String gender;
     private String zipCode;
     private String address;
@@ -21,7 +21,7 @@ public class UpdateUserPublic {
     private String phoneNumber;
 
     @Builder
-    public UpdateUserPublic(String country, LocalDate birthday, String gender, String zipCode, String address, String detailAddress, String number, String phoneNumber) {
+    public UpdateUserPublic(String country, String birthday, String gender, String zipCode, String address, String detailAddress, String number, String phoneNumber) {
         this.country = country;
         this.birthday = birthday;
         this.gender = gender;
